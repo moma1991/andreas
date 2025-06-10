@@ -1,0 +1,355 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .logo {
+    text-align: center;
+    margin: 30px 0;
+  }
+
+  .logo img {
+    max-height: 60px;
+  }
+
+  .form-wrapper {
+    display: flex;
+    gap: 20px;
+  }
+
+  .sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    height: fit-content;
+  }
+
+  .sidebar h3 {
+    color: #ecf0f1;
+    margin-top: 0;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sidebar ul li {
+    margin-bottom: 10px;
+  }
+
+  .sidebar ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .sidebar ul li a:hover,
+  .sidebar ul li a.active {
+    background-color: #34495e;
+    color: white;
+  }
+
+  .main-content {
+    flex: 1;
+  }
+
+  .form-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-section h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 5px;
+  }
+
+  input,
+  select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+  }
+
+  #antragsteller-2 {
+    display: none;
+  }
+</style>
+
+<div class="container">
+  <div class="logo">
+    <img src="logo.png" alt="Firmenlogo">
+  </div>
+
+  <div class="form-wrapper">
+    <div class="sidebar">
+      <h3>Formular Navigation</h3>
+      <ul>
+        <li><a href="#antragsteller-1" class="active">1. Persönliche Daten</a></li>
+        <li><a href="#kinder">2. Kinder</a></li>
+        <li><a href="#finanzen">3. Finanzielle Situation</a></li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <!-- Auswahl: Anzahl Antragsteller -->
+      <div class="form-section">
+        <label><input type="radio" name="antragsteller_anzahl" value="1" checked
+            onclick="document.getElementById('antragsteller-2').style.display='none'"> Nur ein Antragsteller</label>
+        <label><input type="radio" name="antragsteller_anzahl" value="2"
+            onclick="document.getElementById('antragsteller-2').style.display='block'"> Zwei Antragsteller</label>
+      </div>
+
+      <!-- Antragsteller 1 -->
+      <div class="form-section" id="antragsteller-1">
+        <h2>1. Persönliche Daten</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Anrede:</label>
+            <select name="anrede_1">
+              <option value="">Bitte wählen</option>
+              <option>Herr</option>
+              <option>Frau</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Titel:</label>
+            <select name="titel_1">
+              <option value="">Bitte wählen</option>
+              <option>Prof.</option>
+              <option>Dr.</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Vorname:</label>
+            <input type="text" name="vorname_1">
+          </div>
+
+          <div class="form-group">
+            <label>Nachname:</label>
+            <input type="text" name="nachname_1">
+          </div>
+
+          <div class="form-group">
+            <label>Geburtsdatum:</label>
+            <input type="date" name="geburtsdatum_1">
+          </div>
+
+          <div class="form-group">
+            <label>Geburtsort:</label>
+            <input type="text" name="geburtsort_1">
+          </div>
+
+          <div class="form-group">
+            <label>Geburtsland:</label>
+            <input type="text" name="geburtsland_1">
+          </div>
+
+          <div class="form-group">
+            <label>Telefon:</label>
+            <input type="tel" name="telefon_1">
+          </div>
+
+          <div class="form-group">
+            <label>E-Mail:</label>
+            <input type="email" name="email_1">
+          </div>
+
+          <div class="form-group">
+            <label>Straße, Hausnummer:</label>
+            <input type="text" name="strasse_1">
+          </div>
+
+          <div class="form-group">
+            <label>PLZ, Ort:</label>
+            <input type="text" name="plz_ort_1">
+          </div>
+
+          <div class="form-group">
+            <label>Dort wohnhaft seit:</label>
+            <input type="month" name="wohnhaft_seit_1">
+          </div>
+        </div>
+      </div>
+
+      <!-- Antragsteller 2 (optional) -->
+      <div class="form-section" id="antragsteller-2">
+        <h2>1. Persönliche Daten – Antragsteller 2</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Anrede:</label>
+            <select name="anrede_2">
+              <option value="">Bitte wählen</option>
+              <option>Herr</option>
+              <option>Frau</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Titel:</label>
+            <select name="titel_2">
+              <option value="">Bitte wählen</option>
+              <option>Prof.</option>
+              <option>Dr.</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Vorname:</label>
+            <input type="text" name="vorname_2">
+          </div>
+
+          <div class="form-group">
+            <label>Nachname:</label>
+            <input type="text" name="nachname_2">
+          </div>
+
+          <div class="form-group">
+            <label>Geburtsdatum:</label>
+            <input type="date" name="geburtsdatum_2">
+          </div>
+
+          <div class="form-group">
+            <label>Geburtsort:</label>
+            <input type="text" name="geburtsort_2">
+          </div>
+
+          <div class="form-group">
+            <label>Geburtsland:</label>
+            <input type="text" name="geburtsland_2">
+          </div>
+
+          <div class="form-group">
+            <label>Telefon:</label>
+            <input type="tel" name="telefon_2">
+          </div>
+
+          <div class="form-group">
+            <label>E-Mail:</label>
+            <input type="email" name="email_2">
+          </div>
+
+          <div class="form-group">
+            <label>Straße, Hausnummer:</label>
+            <input type="text" name="strasse_2">
+          </div>
+
+          <div class="form-group">
+            <label>PLZ, Ort:</label>
+            <input type="text" name="plz_ort_2">
+          </div>
+
+          <div class="form-group">
+            <label>Dort wohnhaft seit:</label>
+            <input type="month" name="wohnhaft_seit_2">
+          </div>
+        </div>
+      </div>
+
+      <!-- Der komplette bisherige Code bleibt erhalten -->
+      <!-- Nächster Abschnitt: Kinder -->
+      <div class="form-section" id="kinder">
+        <h2>2. Kinder</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Leben Kinder in Ihrem Haushalt?</label>
+            <select name="kinder_im_haushalt">
+              <option value="">Bitte wählen</option>
+              <option>Ja</option>
+              <option>Nein</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Anzahl Ihrer Kinder:</label>
+            <input type="number" name="anzahl_kinder" min="0">
+          </div>
+
+          <div class="form-group">
+            <label>Name Kind 1:</label>
+            <input type="text" name="name_kind_1">
+          </div>
+
+          <div class="form-group">
+            <label>Geburtsdatum Kind 1:</label>
+            <input type="date" name="geburt_kind_1">
+          </div>
+
+          <div class="form-group">
+            <label>Kindergeld Kind 1:</label>
+            <input type="number" name="kindergeld_1" step="0.01">
+          </div>
+
+          <div class="form-group">
+            <label>Unterhaltseinnahmen Kind 1 (€):</label>
+            <input type="number" name="unterhalt_1" step="0.01">
+          </div>
+
+          <div class="form-group">
+            <label>Name Kind 2:</label>
+            <input type="text" name="name_kind_2">
+          </div>
+
+          <div class="form-group">
+            <label>Geburtsdatum Kind 2:</label>
+            <input type="date" name="geburt_kind_2">
+          </div>
+
+          <div class="form-group">
+            <label>Kindergeld Kind 2:</label>
+            <input type="number" name="kindergeld_2" step="0.01">
+          </div>
+
+          <div class="form-group">
+            <label>Unterhaltseinnahmen Kind 2 (€):</label>
+            <input type="number" name="unterhalt_2" step="0.01">
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
